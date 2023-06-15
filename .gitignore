@@ -1,0 +1,21 @@
+# Fichiers et dossiers générés par les systèmes d'exploitation
+.DS_Store
+Thumbs.db
+
+# Dossiers spécifiques à certains langages/plateformes
+node_modules/
+*.log
+
+# Fichiers de configuration
+.env
+
+# Fichiers de dépendances
+vendor/
+
+# Fichiers générés par des outils de développement
+dist/
+build/
+out/
+
+# Dossiers de sauvegarde
+backup/
