@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT avec Discogs</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ChatGPT avec Discogs</h1>
+
+      <div class="form-group">
+        <label for="userMessage">Message :</label>
+        <input
+          type="text"
+          id="userMessage"
+          placeholder="Entrez votre message"
+        />
+      </div>
+
+      <div class="form-group">
+        <button id="sendMessage">Envoyer</button>
+      </div>
+
+      <div class="results" id="chatResults">
+        <!-- Ici seront affichés les résultats -->
+      </div>
+    </div>
+
+    <script>
+      // Get HTML elements
+      const userMessageInput = document.getElementById("userMessage");
+      const sendMessageButton = document.getElementById("sendMessage");
+      const chatResultsDiv = document.getElementById("chatResults");
+
+      // Attach an event listener to the send message button
+      sendMessageButton.addEventListener("click", () => {
+        // Get user message
+        const userMessage = userMessageInput.value;
+
+        // Make sure the user has entered a message
+        if (!userMessage) {
+          alert("Please enter a message");
+          return;
+        }
+
+        // Send a request to the server
+        fetch("http://localhost:3000/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_message: userMessage }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // Display the server's response
+            chatResultsDiv.innerText = data.message;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
