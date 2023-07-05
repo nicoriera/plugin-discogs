@@ -1,0 +1,30 @@
+/* styles.css */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 5px;
+}
+
+.form-group button {
+  padding: 5px 10px;
+}
+
+.results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
